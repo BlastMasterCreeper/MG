@@ -1,10 +1,9 @@
 package neuroshimaHex.Tile.Base;
 
-public interface TileAct {
-    
-    public void drew();
-    
-    public void discard();
+import neuroshimaHex.Public.PublicParams;
 
-    public void destroy();
+public interface TileAct {
+
+    public PublicParams.Location getLocation();
+
 }

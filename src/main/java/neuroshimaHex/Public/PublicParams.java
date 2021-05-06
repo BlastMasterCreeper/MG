@@ -34,6 +34,8 @@ public interface PublicParams {
 
     enum Location {
 
+        DEFAULT(0, 0),
+
         PILE(1,35),
 
         HAND(101,103),
