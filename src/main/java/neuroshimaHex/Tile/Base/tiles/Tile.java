@@ -7,23 +7,22 @@ import neuroshimaHex.Tile.Base.TileAct;
 @Data
 public class Tile implements TileAct {
 
-    PublicParams.Army army;
-
-    private int placed;
+    private int id;
 
     private String name;
 
-    public Tile(String name) {
+    public Tile() {
+        this.id = 0;
+        this.name = "DEFAULT";
+    }
+
+    public Tile(String name, int id) {
+        this.id = id;
         this.name = name;
     }
 
-    @Override
-    public PublicParams.Location getLocation() {
-        for (PublicParams.Location loc : PublicParams.Location.values()) {
-            if (placed >= loc.getLowLimit() && placed <= loc.getHighLimit()) {
-                return loc;
-            }
-        };
-        return null;
+    public PublicParams.Army getArmy() {
+        return PublicParams.Army.getArmy(id/100);
     }
+
 }

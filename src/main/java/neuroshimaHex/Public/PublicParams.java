@@ -3,6 +3,7 @@ package neuroshimaHex.Public;
 public interface PublicParams {
     enum Army {
 
+        DEFAULT(0),
         BORGO(1),
         MOLOCH(2),
         HEGEMONY(3),
@@ -27,32 +28,18 @@ public interface PublicParams {
 
         Army(int value) {this.value = value;}
 
+        public static Army getArmy(int value) {
+            for (Army a : Army.values()) {
+                if (value == a.value) {
+                    return a;
+                }
+            }
+            return null;
+        }
+
         public Integer getValue() {
             return value;
         }
-    }
-
-    enum Location {
-
-        DEFAULT(0, 0),
-
-        PILE(1,35),
-
-        HAND(101,103),
-
-        DISCARD_PILE(201,235),
-
-        BATTLE_FIELD(301,337);
-
-        private Integer highLimit;
-
-        private Integer lowLimit;
-
-        Location(int highLimit, int lowLimit) {this.highLimit = highLimit; this.lowLimit = lowLimit;}
-
-        public Integer getHighLimit() {return highLimit;}
-
-        public Integer getLowLimit() {return lowLimit;}
     }
 
     enum Clock {
@@ -74,6 +61,21 @@ public interface PublicParams {
 
         Clock(int value) {this.value = value;}
 
+        public static Clock getClock(int value) {
+            for (Clock c : Clock.values()) {
+                if (value == c.value) {
+                    return c;
+                }
+            }
+            return null;
+        }
+
         public Integer getValue() {return value;}
+
+        public void setValue(int value) {this.value = value;}
+
+        public Integer getReversed() {return (value+6)%12;}
+
+        public Integer getTurn(int ori) {return (value+ori)%12;}
     }
 }
