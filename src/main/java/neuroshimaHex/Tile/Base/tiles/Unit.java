@@ -3,13 +3,14 @@ package neuroshimaHex.Tile.Base.tiles;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import neuroshimaHex.Room.BattleField;
-import neuroshimaHex.Public.PublicParams;
-import neuroshimaHex.Room.Board;
-import neuroshimaHex.Tile.Base.UnitAct;
+import neuroshimaHex.Constant.PublicParams;
+import neuroshimaHex.Tile.Base.tiles.Act.UnitAct;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class Unit extends Tile implements UnitAct {
+
+    private BattleField battleField;
 
     private int[] coordinates;
 
@@ -17,7 +18,8 @@ public class Unit extends Tile implements UnitAct {
 
     private PublicParams.Army controlRight;
 
-    public Unit() {
+    public Unit(BattleField battleField) {
+        this.battleField = battleField;
         this.coordinates = new int[3];
         this.orientation = PublicParams.Clock.ELeven;
         this.controlRight = this.getArmy();

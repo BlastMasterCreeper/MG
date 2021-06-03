@@ -24,6 +24,27 @@ public class Board {
         this.battleField = battleField;
     }
 
+    public void initHands(int numbers) {
+        this.hands = new LinkedList<>();
+        for (int i = 0; i < numbers; i++) {
+            hands.add(new Hand());
+        }
+    }
+
+    public void initDrawDecks(int numbers) {
+        this.discardDecks = new LinkedList<>();
+        for (int i = 0; i < numbers; i++) {
+            this.drawDecks.add(new DrawDeck());
+        }
+    }
+
+    public void initDiscardDecks(int numbers) {
+        this.discardDecks = new LinkedList<>();
+        for (int i = 0; i < numbers; i++) {
+            this.discardDecks.add(new DiscardDeck());
+        }
+    }
+
     public Hand getHand(int index) {
         return hands.get(index);
     }

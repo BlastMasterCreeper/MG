@@ -1,6 +1,7 @@
 package neuroshimaHex.Room;
 
 import lombok.Data;
+import neuroshimaHex.Tile.Base.tiles.Foundation;
 import neuroshimaHex.Tile.Base.tiles.Unit;
 
 @Data
@@ -15,11 +16,14 @@ public class Hexagon {
     //该格所部属单位板块
     private Unit occupiedUnit;
 
+    private Foundation placedFoundation;
+
     public Hexagon() {
         layer = 0;
         coordinate = new int[]{0,0,0};
         position = 0;
         occupiedUnit = null;
+        placedFoundation = null;
     }
 
     public Hexagon(int x, int y) {

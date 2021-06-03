@@ -1,4 +1,4 @@
-package neuroshimaHex.Tile.Base;
+package neuroshimaHex.Tile.Base.tiles.Act;
 
 import neuroshimaHex.Room.BattleField;
 import neuroshimaHex.Tile.Base.tiles.Unit;

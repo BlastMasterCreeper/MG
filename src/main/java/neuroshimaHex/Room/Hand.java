@@ -27,6 +27,7 @@ public class Hand {
     }
 
     public void putIn(Tile tile) {
+        if (tiles.size() < 3)
         tiles.add(tile);
     }
 

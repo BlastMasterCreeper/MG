@@ -1,4 +1,4 @@
-package neuroshimaHex.Public;
+package neuroshimaHex.Constant;
 
 public interface PublicParams {
     enum Army {

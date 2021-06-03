@@ -1,6 +1,7 @@
 package neuroshimaHex.Room;
 
 import neuroshimaHex.Tile.Base.tiles.Tile;
+import neuroshimaHex.Tile.Base.tiles.Unit;
 
 public class DiscardDeck extends Deck {
 

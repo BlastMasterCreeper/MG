@@ -1,8 +1,8 @@
 package neuroshimaHex.Tile.Base.tiles;
 
 import lombok.Data;
-import neuroshimaHex.Public.PublicParams;
-import neuroshimaHex.Tile.Base.TileAct;
+import neuroshimaHex.Constant.PublicParams;
+import neuroshimaHex.Tile.Base.tiles.Act.TileAct;
 
 @Data
 public class Tile implements TileAct {
