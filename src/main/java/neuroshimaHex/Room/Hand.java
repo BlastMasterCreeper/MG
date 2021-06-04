@@ -12,7 +12,7 @@ public class Hand {
     List<Tile> tiles;
 
     public Hand() {
-        tiles = new LinkedList<>();
+        tiles = new LinkedList<Tile>();
     }
 
     public Tile drawOut(int i) {

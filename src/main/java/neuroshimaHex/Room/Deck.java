@@ -12,7 +12,8 @@ public class Deck {
     protected List<Tile> content;
 
     public Deck() {
-        content = new LinkedList<>();
+
+        content = new LinkedList<Tile>();
     }
 
     public Tile popOne() {

@@ -12,7 +12,7 @@ public class BattleField {
      * @param layers 战场圈数
      */
     public BattleField(int layers) {
-        hexagons = new ArrayList<>();
+        hexagons = new ArrayList<Hexagon>();
         for (int x = -layers; x <= layers; x++) {
             for (int y = -layers; y <= layers; y++) {
                 if (x+y>=-layers && x+y<=layers) {

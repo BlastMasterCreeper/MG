@@ -18,28 +18,28 @@ public class Board {
     private BattleField battleField;
 
     public Board(BattleField battleField) {
-        this.hands = new LinkedList<>();
-        this.drawDecks = new LinkedList<>();
-        this.discardDecks = new LinkedList<>();
+        this.hands = new LinkedList<Hand>();
+        this.drawDecks = new LinkedList<DrawDeck>();
+        this.discardDecks = new LinkedList<DiscardDeck>();
         this.battleField = battleField;
     }
 
     public void initHands(int numbers) {
-        this.hands = new LinkedList<>();
+        this.hands = new LinkedList<Hand>();
         for (int i = 0; i < numbers; i++) {
             hands.add(new Hand());
         }
     }
 
     public void initDrawDecks(int numbers) {
-        this.discardDecks = new LinkedList<>();
+        this.discardDecks = new LinkedList<DiscardDeck>();
         for (int i = 0; i < numbers; i++) {
             this.drawDecks.add(new DrawDeck());
         }
     }
 
     public void initDiscardDecks(int numbers) {
-        this.discardDecks = new LinkedList<>();
+        this.discardDecks = new LinkedList<DiscardDeck>();
         for (int i = 0; i < numbers; i++) {
             this.discardDecks.add(new DiscardDeck());
         }

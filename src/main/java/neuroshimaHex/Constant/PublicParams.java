@@ -1,6 +1,7 @@
 package neuroshimaHex.Constant;
 
 public interface PublicParams {
+
     enum Army {
 
         DEFAULT(0),
@@ -10,7 +11,7 @@ public interface PublicParams {
         OUTPOST(4),
         STEEL_POLICE(5),
         URANOPOLIS(6),
-        MISSISSIPI(7),
+        MISSISSIPPI(7),
         SMART(8),
         VEGAS(9),
         DOOM_MACHINE(10),
@@ -78,4 +79,58 @@ public interface PublicParams {
 
         public Integer getTurn(int ori) {return (value+ori)%12;}
     }
+
+    enum Attack {
+
+        Melee_Attack,
+        Ranged_Attack,
+        Gauss_Attack,
+        Toxic_Attack,
+        Shotgun_Attack,
+        Mortar_Attack
+
+    }
+
+    enum Passive_Skill {
+        Toughness,
+        Armor,
+        Reflection,
+        Demolition,
+        Charge,
+        Devouring,
+        Socket,
+        Recycle,
+        Mortar,
+        Fission,
+        Paralysis,
+        Venom,
+        Detonate,
+        Underground,
+        Spy,
+        Intergrowth
+
+    }
+
+    enum Active_Skill {
+        Mobility,
+        Rotation,
+        Push,
+        Castling,
+        Underground_Castling,
+        Net_of_Steel
+    }
+
+    enum Responsive_Skill {
+        Heal,
+        Explosion,
+        Execution,
+        Sharpshooter,
+        Shadow,
+        Rocket,
+        Transfer,
+        Ranged_Transform,
+        Gauss_Transform,
+        Revival
+    }
+
 }

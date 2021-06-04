@@ -18,7 +18,7 @@ public class Room {
         this.board.initHands(numbers);
         this.board.initDrawDecks(numbers);
         this.board.initDiscardDecks(numbers);
-        this.players = new LinkedList<>();
+        this.players = new LinkedList<Player>();
         for (int i = 0; i < numbers; i++) {
             players.add(new Player(numbers, this.board));
         }
