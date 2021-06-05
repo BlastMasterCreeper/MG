@@ -80,18 +80,17 @@ public interface PublicParams {
         public Integer getTurn(int ori) {return (value+ori)%12;}
     }
 
-    enum Attack {
+    enum Attack_Type {
 
         Melee_Attack,
         Ranged_Attack,
         Gauss_Attack,
         Toxic_Attack,
         Shotgun_Attack,
-        Mortar_Attack
 
     }
 
-    enum Passive_Skill {
+    enum Passive_Skill_Type {
         Toughness,
         Armor,
         Reflection,
@@ -111,7 +110,7 @@ public interface PublicParams {
 
     }
 
-    enum Active_Skill {
+    enum Active_Skill_Type {
         Mobility,
         Rotation,
         Push,
@@ -120,7 +119,7 @@ public interface PublicParams {
         Net_of_Steel
     }
 
-    enum Responsive_Skill {
+    enum Responsive_Skill_Type {
         Heal,
         Explosion,
         Execution,
@@ -131,6 +130,52 @@ public interface PublicParams {
         Ranged_Transform,
         Gauss_Transform,
         Revival
+    }
+
+    enum Link_Type {
+        Melee_Strengthen,
+        Ranged_Strengthen,
+        Extra_Action,
+        Acceleration,
+        Deceleration,
+        Zone,
+        Medic,
+        Reinforce,
+        Transport,
+        Changeover,
+        Takeover,
+        Net,
+        Tentacles,
+        Paralysis,
+        Wastes,
+        Ranged_Transformation,
+        Gauss_Transformation,
+        Motherland,
+        Plug,
+        Envenom
+    }
+
+    enum Buff_Type {
+        Melee_Strengthened,
+        Ranged_Strengthened,
+        Extra_Action,
+        Accelerated,
+        Decelerated,
+        Zone,
+        Medic,
+        Reinforce,
+        Transport,
+        Changeover,
+        Takeover,
+        Disabled,
+        Paralysed,
+        Polluted,
+        Ranged_Transformation,
+        Gauss_Transformation,
+        Intergrowth,
+        Charged,
+        Venom,
+        Poisoned
     }
 
 }
