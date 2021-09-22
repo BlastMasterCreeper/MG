@@ -4,6 +4,4 @@ import neuroshimaHex.Tile.Base.tiles.Act.ModuleAct;
 
 public class Module extends Unit implements ModuleAct {
 
-
-
 }

@@ -18,10 +18,10 @@ public class Unit extends Tile implements UnitAct {
 
     private PublicParams.Army controlRight;
 
-    public Unit(BattleField battleField) {
-        this.battleField = battleField;
+    public Unit() {
+        this.battleField = null;
         this.coordinates = new int[3];
-        this.orientation = PublicParams.Clock.ELeven;
+        this.orientation = PublicParams.Clock.Twelve;
         this.controlRight = this.getArmy();
     }
 
@@ -33,5 +33,10 @@ public class Unit extends Tile implements UnitAct {
     @Override
     public void rotateTo(int ori, BattleField bt) {
         this.setOrientation(PublicParams.Clock.getClock(ori));
+    }
+
+    @Override
+    public void onMove(int pos) {
+
     }
 }

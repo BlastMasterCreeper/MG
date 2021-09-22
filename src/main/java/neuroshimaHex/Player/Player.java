@@ -21,10 +21,17 @@ public class Player {
         this.board = board;
     }
 
+    /**
+     * 玩家摸牌
+     */
     public void drawCard() {
         board.getHand(index).putIn(board.getDrawDeck(index).popOne());
     }
 
+    /**
+     * 玩家弃牌
+     * @param i 手牌序号
+     */
     public void discard(int i) {
         board.getDiscardDeck(index).addOne(board.getHand(index).drawOut(i));
     }

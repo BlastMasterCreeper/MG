@@ -8,4 +8,7 @@ public interface UnitAct {
     public void moveTo(int pos, BattleField bt);
 
     public void rotateTo(int ori, BattleField bt);
+
+    public void onMove(int pos);
+
 }
