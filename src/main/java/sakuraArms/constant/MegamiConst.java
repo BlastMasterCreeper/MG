@@ -2,7 +2,7 @@ package sakuraArms.constant;
 
 public class MegamiConst {
 
-    enum Megami {
+    public enum Megami {
         YURINA(1,"yurina", "摇波"),
         SAINE(2,"saine", "细音"),
         HIMIKA(3,"himika", "绯弥香"),
@@ -27,7 +27,7 @@ public class MegamiConst {
         private final int number;
         private final String name;
         private final String chsName;
-        private Megami(int number, String name, String chsName) {
+        Megami(int number, String name, String chsName) {
             this.number = number;
             this.name = name;
             this.chsName = chsName;

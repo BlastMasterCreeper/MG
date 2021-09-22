@@ -2,23 +2,43 @@ package sakuraArms.constant;
 
 public class AreaConst {
 
-    public static final byte LIFE_MIN = 0;
-    public static final byte LIFE_MAX = 10;
-    public static final byte LIFE_INIT = 10;
+    public enum Area {
 
-    public static final byte AURA_MIN = 0;
-    public static final byte AURA_MAX = 5;
-    public static final byte AURA_INIT = 3;
+        Life("life", 0 , 10 , 10),
+        Aura("aura", 0 , 5,0),
+        Flare("flare", 0, Integer.MAX_VALUE, 0),
+        DISTANCE("distance", 0, 10, 10),
+        SHADOW("shadow", 0 , Integer.MAX_VALUE, 0);
 
-    public static final byte FLARE_MIN = 0;
-    public static final byte FLARE_INIT = 10;
+        private final String name;
+        private final int min;
+        private final int max;
+        private final int init;
 
-    public static final byte DUST_MIN = 0;
-    public static final byte DUST_INIT = 0;
+        Area(String name, int min, int max, int init) {
+            this.name = name;
+            this.min = min;
+            this.max = max;
+            this.init = init;
+        }
 
-    public static final byte DISTANCE_MIN = 0;
-    public static final byte DISTANCE_MAX = 10;
-    public static final byte DISTANCE_INIT = 10;
+        public String getName() {
+            return name;
+        }
+
+        public int getMin() {
+            return min;
+        }
+
+        public int getMax() {
+            return max;
+        }
+
+        public int getInit() {
+            return init;
+        }
+
+    }
 
     public static final byte CLOSE_QUARTERS_BASE = 2;
 
