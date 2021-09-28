@@ -1,55 +1,209 @@
 package sakuraArms.board;
 
-import lombok.Data;
-import sakuraArms.constant.AreaConst;
-
-@Data
 public class Board {
 
-    int life1, life2;
-    int aura1, aura2;
-    int flare1, flare2;
-    int shadow;
-    int distance;
-    int closeQuarters;
+    private final int base_masterDistance = 2;
+    private int masterDistance = base_masterDistance;
+    private int extraDistance = 0;
+    private int extraMasterDistance = 0;
 
-    public Board() {
-        this.life1 = AreaConst.Area.Life.getInit();
-        this.life2 = AreaConst.Area.Life.getInit();
-        this.aura1 = AreaConst.Area.Aura.getInit();
-        this.aura2 = AreaConst.Area.Aura.getInit();
-        this.flare1 = AreaConst.Area.Flare.getInit();
-        this.flare2 = AreaConst.Area.Flare.getInit();
-        this.shadow = AreaConst.Area.SHADOW.getInit();
-        this.distance = AreaConst.Area.DISTANCE.getInit();
-        this.closeQuarters = AreaConst.CLOSE_QUARTERS_BASE;
+    private Area life1 = new Area(Area.areaType.Life1,10, 10);
+    private Area life2 = new Area(Area.areaType.Life2,10, 10);
+    private Area aura1 = new Area(Area.areaType.Aura1,5, 3);
+    private Area aura2 = new Area(Area.areaType.Aura2,5, 3);
+    private Area flare1 = new Area(Area.areaType.Flare1, Integer.MAX_VALUE, 0);
+    private Area flare2 = new Area(Area.areaType.Flare2, Integer.MAX_VALUE, 0);
+    private Area distance = new Area(Area.areaType.Distance,10, 10);
+    private Area shadow = new Area(Area.areaType.Shadow, Integer.MAX_VALUE, 0);
+
+    public int getLife1() {
+        return life1.getNumber();
     }
 
-    public void setFlare1(int flare1) {
-        if (flare1 < 0) return;
-        this.flare1 = flare1;
+    public int getLife2() {
+        return life2.getNumber();
     }
 
-    public void setFlare2(int flare2) {
-        if (flare2 < 0) return;
-        this.flare2 = flare2;
+    public int getAura1() {
+        return aura1.getNumber();
     }
 
-    //[装]<->[虚]
-    public void auraToShadow(int sakura, int position) {
-        if (sakura == 0) return;
-        int n = 0;
+    public int getAura2() {
+        return aura2.getNumber();
+    }
+
+    public int getFlare1() {
+        return flare1.getNumber();
+    }
+
+    public int getFlare2() {
+        return flare2.getNumber();
+    }
+
+    public void setExtraDistance(int extraDistance) {
+        this.extraDistance = extraDistance;
+    }
+
+    public int getDistance() {
+        return distance.getNumber() + extraDistance;
+    }
+
+    public void setExtraMasterDistance(int extraMasterDistance) {
+        this.extraMasterDistance = extraMasterDistance;
+    }
+
+    public int getMasterDistance() {
+        return masterDistance + extraMasterDistance;
+    }
+
+    public void setAuraMax(int max, int position) {
         if (position == 1) {
-            n = sakura > 0 ? Math.min(aura1, sakura) : Math.max(-shadow, Math.max(aura1 - AreaConst.Area.Flare.getInit(), sakura));
-            aura1 -= n;
+            aura1.setMax(Math.min(max, aura1.getNumber()));
         }
         if (position == 2) {
-            n = sakura > 0 ? Math.min(aura2, sakura) : Math.max(-shadow, Math.max(aura2 - AreaConst.Area.Flare.getInit(), sakura));
-            aura2 -= n;
+            aura2.setMax(Math.min(max, aura2.getNumber()));
         }
-        shadow += n;
     }
 
-    //[命]<->[气]
+    public int getAvailable(Area.areaType source, Area.areaType target) {
+        int ans = 0;
+        switch (source) {
+            case Life1: {
+                ans = life1.getNumber();
+                break;
+            }
+            case Life2: {
+                ans = life2.getNumber();
+                break;
+            }
+            case Aura1: {
+                ans = aura1.getNumber();
+                break;
+            }
+            case Aura2: {
+                ans = aura2.getNumber();
+                break;
+            }
+            case Flare1: {
+                ans = flare1.getNumber();
+                break;
+            }
+            case Flare2: {
+                ans = flare2.getNumber();
+                break;
+            }
+            case Distance: {
+                ans = distance.getNumber();
+                break;
+            }
+            case Shadow: {
+                ans = shadow.getNumber();
+                break;
+            }
+        }
+        switch (target) {
+            case Life1: {
+                ans = Math.min(life1.getMax() - life1.getNumber(), ans);
+                break;
+            }
+            case Life2: {
+                ans = Math.min(life2.getMax() - life2.getNumber(), ans);
+                break;
+            }
+            case Aura1: {
+                ans = Math.min(aura1.getMax() - aura1.getNumber(), ans);
+                break;
+            }
+            case Aura2: {
+                ans = Math.min(aura2.getMax() - aura2.getNumber(), ans);
+                break;
+            }
+            case Distance: {
+                ans = Math.min(distance.getMax() - distance.getNumber(), ans);
+                break;
+            }
+        }
+        return ans;
+    }
+
+    public int sakuraTransfer(Area.areaType source, Area.areaType target, int number) {
+        int ans = 0;
+        if (number < 0) return 1;
+        int number2 = getAvailable(source, target);
+        if (number > number2) {
+            number = number2;
+            ans = 2;
+        }
+        switch (source) {
+            case Life1: {
+                life1.setNumber(life1.getNumber() - number);
+                break;
+            }
+            case Life2: {
+                life2.setNumber(life2.getNumber() - number);
+                break;
+            }
+            case Aura1: {
+                aura1.setNumber(aura1.getNumber() - number);
+                break;
+            }
+            case Aura2: {
+                aura2.setNumber(aura2.getNumber() - number);
+                break;
+            }
+            case Flare1: {
+                flare1.setNumber(flare1.getNumber() - number);
+                break;
+            }
+            case Flare2: {
+                flare2.setNumber(flare2.getNumber() - number);
+                break;
+            }
+            case Distance: {
+                distance.setNumber(distance.getNumber() - number);
+                break;
+            }
+            case Shadow: {
+                shadow.setNumber(shadow.getNumber() - number);
+                break;
+            }
+        }
+        switch (target) {
+            case Life1: {
+                life1.setNumber(life1.getNumber() + number);
+                break;
+            }
+            case Life2: {
+                life2.setNumber(life2.getNumber() + number);
+                break;
+            }
+            case Aura1: {
+                aura1.setNumber(aura1.getNumber() + number);
+                break;
+            }
+            case Aura2: {
+                aura2.setNumber(aura2.getNumber() + number);
+                break;
+            }
+            case Flare1: {
+                flare1.setNumber(flare1.getNumber() + number);
+                break;
+            }
+            case Flare2: {
+                flare2.setNumber(flare2.getNumber() + number);
+                break;
+            }
+            case Distance: {
+                distance.setNumber(distance.getNumber() + number);
+                break;
+            }
+            case Shadow: {
+                shadow.setNumber(shadow.getNumber() + number);
+                break;
+            }
+        }
+        return ans;
+    }
+
 
 }

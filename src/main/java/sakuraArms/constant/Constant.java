@@ -1,8 +1,8 @@
 package sakuraArms.constant;
 
-public class MegamiConst {
+public class Constant {
 
-    public enum Megami {
+    public enum Goddess {
         YURINA(1,"yurina", "摇波"),
         SAINE(2,"saine", "细音"),
         HIMIKA(3,"himika", "绯弥香"),
@@ -27,7 +27,7 @@ public class MegamiConst {
         private final int number;
         private final String name;
         private final String chsName;
-        Megami(int number, String name, String chsName) {
+        Goddess(int number, String name, String chsName) {
             this.number = number;
             this.name = name;
             this.chsName = chsName;
@@ -45,5 +45,23 @@ public class MegamiConst {
             return chsName;
         }
     }
+
+    public enum Speciality {
+        Overkill, Inevitable, Limited, FullForce, Concentration,
+    }
+
+    public enum Type {
+        Attack, Utility, Enchantment
+    }
+
+    public enum SubType {
+        Reaction, FullPower
+    }
+
+    public enum UltimateCardStatus {
+        NotUsed, InUse, Used
+    }
+
+    public enum AttackSpeciality {}
 
 }
