@@ -1,5 +1,7 @@
 package sakuraArms.board;
 
+import sakuraArms.constant.Constant.*;
+
 public class Board {
 
     private final int base_masterDistance = 2;
@@ -7,14 +9,14 @@ public class Board {
     private int extraDistance = 0;
     private int extraMasterDistance = 0;
 
-    private Area life1 = new Area(Area.areaType.Life1,10, 10);
-    private Area life2 = new Area(Area.areaType.Life2,10, 10);
-    private Area aura1 = new Area(Area.areaType.Aura1,5, 3);
-    private Area aura2 = new Area(Area.areaType.Aura2,5, 3);
-    private Area flare1 = new Area(Area.areaType.Flare1, Integer.MAX_VALUE, 0);
-    private Area flare2 = new Area(Area.areaType.Flare2, Integer.MAX_VALUE, 0);
-    private Area distance = new Area(Area.areaType.Distance,10, 10);
-    private Area shadow = new Area(Area.areaType.Shadow, Integer.MAX_VALUE, 0);
+    private Area life1 = new Area(areaType.Life1,10, 10);
+    private Area life2 = new Area(areaType.Life2,10, 10);
+    private Area aura1 = new Area(areaType.Aura1,5, 3);
+    private Area aura2 = new Area(areaType.Aura2,5, 3);
+    private Area flare1 = new Area(areaType.Flare1, Integer.MAX_VALUE, 0);
+    private Area flare2 = new Area(areaType.Flare2, Integer.MAX_VALUE, 0);
+    private Area distance = new Area(areaType.Distance,10, 10);
+    private Area shadow = new Area(areaType.Shadow, Integer.MAX_VALUE, 0);
 
     public int getLife1() {
         return life1.getNumber();
@@ -65,7 +67,7 @@ public class Board {
         }
     }
 
-    public int getAvailable(Area.areaType source, Area.areaType target) {
+    public int getAvailable(areaType source, areaType target) {
         int ans = 0;
         switch (source) {
             case Life1: {
@@ -126,7 +128,7 @@ public class Board {
         return ans;
     }
 
-    public int sakuraTransfer(Area.areaType source, Area.areaType target, int number) {
+    public int sakuraTransfer(areaType source, areaType target, int number) {
         int ans = 0;
         if (number < 0) return 1;
         int number2 = getAvailable(source, target);

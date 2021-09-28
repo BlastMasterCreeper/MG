@@ -1,11 +1,10 @@
 package sakuraArms.board;
 
 import lombok.Data;
+import sakuraArms.constant.Constant.*;
 
 @Data
 public class Area {
-
-    enum areaType {Life1, Life2, Aura1, Aura2, Flare1, Flare2, Distance, Shadow};
 
     private areaType areaType;
     private int max;

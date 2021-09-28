@@ -46,6 +46,8 @@ public class Constant {
         }
     }
 
+    public enum areaType {Life1, Life2, Aura1, Aura2, Flare1, Flare2, Distance, Shadow};
+
     public enum Speciality {
         Overkill, Inevitable, Limited, FullForce, Concentration,
     }
