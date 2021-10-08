@@ -64,6 +64,8 @@ public class Constant {
         NotUsed, InUse, Used
     }
 
-    public enum AttackSpeciality {}
+    public enum AttackSpeciality {
+        OverKill, Inevitable, UnableToReact_Normal, Penetration
+    }
 
 }

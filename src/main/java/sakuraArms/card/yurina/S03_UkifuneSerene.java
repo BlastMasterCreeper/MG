@@ -1,6 +1,7 @@
 package sakuraArms.card.yurina;
 
 import sakuraArms.board.Board;
+import sakuraArms.board.Player;
 import sakuraArms.card.UtilityCard;
 import sakuraArms.constant.Constant.*;
 
@@ -9,7 +10,7 @@ public class S03_UkifuneSerene extends UtilityCard {
     S03_UkifuneSerene() {
         super();
         this.setUltimate(true);
-        this.setUseCondition(true);
+        this.setUseCondition(false);
         UltimateInfo ultimateInfo = new UltimateInfo();
         ultimateInfo.setCost(2);
         ultimateInfo.setStatus(UltimateCardStatus.NotUsed);
@@ -20,13 +21,13 @@ public class S03_UkifuneSerene extends UtilityCard {
     }
 
     @Override
-    public void use(Board board, int position) {
+    public void use() {
 
     }
 
     @Override
-    public void takeEffect(Board board, int position) {
-        if (position == 1) board.sakuraTransfer(areaType.Shadow, areaType.Aura1, 5);
-        if (position == 2) board.sakuraTransfer(areaType.Shadow, areaType.Aura2, 5);
+    public void takeEffect() {
+        if (this.getPlayer().getPosition() == 1) this.getPlayer().getBoard().sakuraTransfer(areaType.Shadow, areaType.Aura1, 5);
+        if (this.getPlayer().getPosition() == 2) this.getPlayer().getBoard().sakuraTransfer(areaType.Shadow, areaType.Aura2, 5);
     }
 }

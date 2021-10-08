@@ -1,7 +1,7 @@
 package sakuraArms.card;
 
 import lombok.Data;
-import sakuraArms.board.Board;
+import sakuraArms.board.Player;
 import sakuraArms.constant.Constant.*;
 
 @Data
@@ -24,5 +24,7 @@ public abstract class Card {
     private Type type;
     private SubType subType;
 
-    public abstract void use(Board board, int position);
+    private Player player;
+
+    public abstract void use();
 }

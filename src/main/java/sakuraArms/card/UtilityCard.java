@@ -8,6 +8,6 @@ import sakuraArms.board.Board;
 @Data
 public abstract class UtilityCard extends Card{
 
-    public abstract void takeEffect(Board board, int position);
+    public abstract void takeEffect();
 
 }

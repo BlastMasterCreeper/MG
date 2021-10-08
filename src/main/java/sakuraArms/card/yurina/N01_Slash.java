@@ -28,7 +28,7 @@ public class N01_Slash extends AttackCard {
     }
 
     @Override
-    public void use(Board board, int position) {
+    public void use() {
 
     }
 }

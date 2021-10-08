@@ -7,10 +7,6 @@ import sakuraArms.constant.Constant.*;
 
 import java.util.*;
 
-enum AttackSpeciality {
-    OverKill, Inevitable, UnableToReact_Normal, Penetration
-}
-
 @EqualsAndHashCode(callSuper = true)
 @Data
 public abstract class AttackCard extends Card{
